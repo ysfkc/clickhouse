@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the zotlo/clickhouse package.
+ * This file is part of the ysfkc/clickhouse package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -63,7 +63,7 @@ class ClickHouseCollection implements \ArrayAccess, \Countable, \IteratorAggrega
     public function toArray(bool $snake = false): array
     {
         return array_map(
-            fn (ClickHouseBaseModel $model) => $snake ? $model->toSnakeArray() : $model->toArray(),
+            fn(ClickHouseBaseModel $model) => $snake ? $model->toSnakeArray() : $model->toArray(),
             $this->items
         );
     }
@@ -169,4 +169,3 @@ class ClickHouseCollection implements \ArrayAccess, \Countable, \IteratorAggrega
         return $this->toArray();
     }
 }
-
