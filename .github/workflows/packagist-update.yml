@@ -1,0 +1,16 @@
+name: Packagist Auto Update
+
+on:
+  push:
+    tags:
+      - 'v*'   # Sadece versiyon tag'leri tetiklesin
+
+jobs:
+  update-packagist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Packagist Update
+        run: |
+          curl -X POST \
+            "https://packagist.org/api/update-package?username=ysfkc&apiToken=${{ secrets.PACKAGIST_API_TOKEN }}" \
+            -H "Content-Type: application/json"
